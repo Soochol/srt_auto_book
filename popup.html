@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>SRT Auto Booker</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 class="title">SRT Auto Booker v2.0</h1>
+        
+        <div class="instruction">
+            <h3>📋 사용방법</h3>
+            <p>1. SRT 조회페이지에서 원하는 시간대에 <strong>"일반"/"특실"</strong> 체크박스를 선택하세요</p>
+            <p>2. 아래 모니터링을 시작하면 체크된 열차의 예약 버튼을 자동 클릭합니다</p>
+        </div>
+        
+        <label for="interval">새로고침 간격 (ms):</label>
+        <input type="number" id="interval" value="3000" class="input-interval" />
+        
+        <button id="start" class="btn">모니터링 시작(F4)</button>
+        <button id="stop" class="btn">중지 (ESC)</button>
+        <button id="help" class="btn">HELP</button>
+        
+        <div id="status" class="status">상태: 대기 중</div>
+        <div id="timer" class="timer"></div>
+        
+        <div class="info-box">
+            <p><strong>🎯 개선된 기능:</strong></p>
+            <ul>
+                <li>시간대별 체크박스로 정확한 선택</li>
+                <li>일반실/특실 구분 선택 가능</li>
+                <li>예약 성공시 축하 소리 🎉</li>
+            </ul>
+        </div>
+        
+        <div class="esc-hint">※ F4 키로 모니터링 시작, ESC 키로 중지할 수 있습니다.</div>
+        <script src="popup.js"></script>
+    </body>
+</html>

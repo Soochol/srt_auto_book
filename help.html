@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SRT Auto Booker 사용 설명서</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            max-width: 800px; margin: 40px auto; padding: 24px; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            color: #2c3e50; font-size: 16px; line-height: 1.6;
+        }
+        h1, h2, h3 { color: #1976d2; margin-top: 0; }
+        h1 { font-size: 2.2em; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 1.5em; border-bottom: 2px solid #e3f2fd; padding-bottom: 8px; }
+        code, pre { background: #fff3cd; padding: 3px 8px; border-radius: 4px; color: #856404; font-weight: bold; }
+        ul, ol { margin-left: 20px; }
+        li { margin-bottom: 8px; }
+        .section { 
+            margin-bottom: 32px; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        hr { margin: 32px 0; border: none; height: 2px; background: linear-gradient(90deg, transparent, #1976d2, transparent); }
+        strong { color: #1976d2; }
+        a { color: #1976d2; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>SRT Auto Booker v2.0 사용 설명서</h1>
+    <div class="section">
+        <h2>소개</h2>
+        <p>SRT Auto Booker v2.0은 SRT 예매 사이트에서 <strong>체크박스 방식</strong>으로 원하는 시간대와 좌석 등급을 선택하여 자동으로 예약해주는 크롬 확장 프로그램입니다.</p>
+        <p><strong>🆕 v2.0 새로운 기능:</strong></p>
+        <ul>
+            <li>🎯 시간대별 일반실/특실 체크박스로 정확한 선택</li>
+            <li>🎵 예약 성공시 축하 멜로디 재생</li>
+            <li>💾 체크박스 선택 상태 자동 저장</li>
+            <li>🔄 매진→예약가능 상태 변화 자동 감지</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>설치 방법</h2>
+        <ol>
+            <li>이 저장소(폴더)를 압축 해제합니다.</li>
+            <li>크롬 주소창에 <code id="extensionsUrl" onclick="copyToClipboard('chrome://extensions/')" style="cursor: pointer; background: #e3f2fd; border: 1px solid #1976d2;">chrome://extensions/</code> 입력 후 이동합니다. <small>(클릭하면 복사됩니다)</small></li>
+            <li>오른쪽 상단의 <b>개발자 모드</b>를 켭니다.</li>
+            <li><b>"압축해제된 확장 프로그램을 로드"</b> 버튼을 클릭하고, 압축을 푼 폴더를 선택합니다.</li>
+            <li>확장 프로그램이 목록에 추가되면 설치 완료!</li>
+        </ol>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>📋 사용 방법 (v2.0)</h2>
+        <ol>
+            <li><b>SRT 예매 사이트</b> (<code onclick="copyToClipboard('https://etk.srail.kr')" style="cursor: pointer; background: #e3f2fd; border: 1px solid #1976d2;">https://etk.srail.kr</code>)에 접속합니다. <small>(클릭하면 복사됩니다)</small></li>
+            <li><b>출발지, 목적지, 날짜</b>를 설정하고 <b>조회하기</b>를 클릭해서 열차 시간표를 확인합니다.</li>
+            <li>각 열차의 일반실/특실 칸에 <strong>"일반"/"특실" 체크박스</strong>가 자동으로 나타납니다.</li>
+            <li><b>원하는 시간대와 좌석 등급의 체크박스를 선택</b>합니다.
+                <ul>
+                    <li>🟦 <strong>"일반"</strong> = 일반실 예약</li>
+                    <li>🟨 <strong>"특실"</strong> = 특실 예약</li>
+                    <li>매진 상태에서도 체크박스 선택 가능</li>
+                </ul>
+            </li>
+            <li>크롬 우측 상단의 <strong>확장 프로그램 아이콘(🚂)</strong>을 클릭해 팝업을 엽니다.</li>
+            <li><b>새로고침 간격(ms)</b>을 설정합니다. (기본값: 3000ms = 3초)</li>
+            <li><b>"모니터링 시작(F4)"</b> 버튼을 클릭하거나 <strong>⌨️ F4 키</strong>를 누릅니다.</li>
+            <li>체크박스가 선택된 열차가 예약 가능해지면 <strong>자동으로 예약 버튼을 클릭</strong>합니다!</li>
+            <li>예약 성공 시 <strong>🎵 축하 멜로디</strong>가 재생되고 모니터링이 자동 중지됩니다.</li>
+            <li><b>"중지 (ESC)"</b> 버튼 또는 <b>ESC 키</b>로 언제든 중지할 수 있습니다.</li>
+        </ol>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>🎯 주요 기능 (v2.0)</h2>
+        <ul>
+            <li><strong>🎯 정확한 선택</strong>: 시간대별 일반실/특실 체크박스로 원하는 좌석만 예약</li>
+            <li><strong>💾 자동 저장</strong>: 체크박스 선택 상태가 자동으로 저장되어 새로고침해도 유지</li>
+            <li><strong>🔄 실시간 감지</strong>: 매진→예약가능 상태 변화를 실시간으로 감지</li>
+            <li><strong>🎵 축하 소리</strong>: 예약 성공시 도-미-솔-도 멜로디 재생</li>
+            <li><strong>⚙️ 간격 설정</strong>: 새로고침 간격 조절 가능 (설정값 자동 저장)</li>
+            <li><strong>⌨️ 키보드 단축키</strong>: F4로 시작, ESC로 중지</li>
+            <li><strong>📢 알림 시스템</strong>: 예약 성공/실패, 입력 감지 등 상황별 알림</li>
+            <li><strong>🔍 입력 감지</strong>: 사용자가 폼을 입력하는 중에는 자동으로 모니터링 일시 중지</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>⌨️ 키보드 단축키</h2>
+        <ul>
+            <li><strong>F4 키</strong>: 모니터링 시작 (체크박스 선택 필수)</li>
+            <li><strong>ESC 키</strong>: 모니터링 중지</li>
+        </ul>
+        <p><small>※ 키보드 단축키는 SRT 조회페이지에서만 작동합니다.</small></p>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>⚠️ 주의사항</h2>
+        <ul>
+            <li><strong>체크박스 선택 필수</strong>: 원하는 열차의 체크박스를 반드시 선택해야 자동 예약됩니다.</li>
+            <li><strong>사이트 구조 변경</strong>: SRT 예매 사이트 구조가 변경되면 동작이 달라질 수 있습니다.</li>
+            <li><strong>입력 중 일시정지</strong>: 폼 입력 중에는 모니터링이 자동으로 일시 중지됩니다.</li>
+            <li><strong>브라우저 팝업 제한</strong>: 브라우저 네이티브 팝업(양식 다시 제출 등)은 자동으로 닫을 수 없습니다.</li>
+            <li><strong>개인 사용 목적</strong>: 본 확장 프로그램은 개인용 자동화 도구로, 상업적/불법적 사용을 금합니다.</li>
+            <li><strong>예약 확인</strong>: 자동 예약 후 반드시 예약 내역을 확인하시기 바랍니다.</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>문의 및 개선 요청</h2>
+        <p>버그, 개선 요청, 문의사항은 개발자에게 직접 연락해 주세요.</p>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('클립보드에 복사되었습니다!\n주소창에 붙여넣기(Ctrl+V)하세요.');
+            }).catch(() => {
+                // 복사 실패시 선택 가능하도록
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('클립보드에 복사되었습니다!\n주소창에 붙여넣기(Ctrl+V)하세요.');
+            });
+        }
+    </script>
+</body>
+</html> 

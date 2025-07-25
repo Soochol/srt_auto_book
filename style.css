@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 300px;
+    padding: 16px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.title {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: bold;
+}
+
+.instruction {
+    background: #fff;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.instruction h3 {
+    margin: 0 0 8px 0;
+    color: #2980b9;
+    font-size: 1em;
+}
+
+.instruction p {
+    margin: 4px 0;
+    font-size: 0.9em;
+    line-height: 1.3;
+}
+
+.input-interval {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.btn {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 10px 0;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#start {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    color: white;
+}
+
+#stop {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+#help {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.status {
+    margin-top: 12px;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #ecf0f1;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.timer {
+    margin-top: 8px;
+    font-size: 0.95em;
+    color: #7f8c8d;
+    text-align: center;
+    background: #fff;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.info-box {
+    background: #fff3cd;
+    border: 2px solid #ffeaa7;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 12px 0;
+}
+
+.info-box p {
+    margin: 0 0 6px 0;
+    color: #856404;
+}
+
+.info-box ul {
+    margin: 0;
+    padding-left: 16px;
+    color: #856404;
+}
+
+.info-box li {
+    font-size: 0.85em;
+    margin-bottom: 2px;
+}
+
+.esc-hint {
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #95a5a6;
+    text-align: center;
+    background: #ecf0f1;
+    padding: 6px;
+    border-radius: 4px;
+}
